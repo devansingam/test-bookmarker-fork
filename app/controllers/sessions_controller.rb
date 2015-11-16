@@ -1,15 +1,13 @@
 class SessionsController < ApplicationController
   def new
-    if current_user
-      redirect_to bookmarks_path
-    else
-    end
   end
 
   def create
-    @user = User.find_by(email: login_params[:email])
-    if @user && @user.authenticate(login_params[:password])
+    user = User.find_by(email: login_params[:email])
+    @user = user.authenticate(login_params[:password])
+    if @user
       session[:user_id] = @user.id
+      flash[:success] = "Welcome, #{@user.email}"
       redirect_to bookmarks_path
     else
       render 'new'
