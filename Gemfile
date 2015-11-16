@@ -15,6 +15,9 @@ gem 'turbolinks'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# use slim for template generation
+gem "slim-rails"
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
