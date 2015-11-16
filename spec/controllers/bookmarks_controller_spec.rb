@@ -48,7 +48,6 @@ RSpec.describe BookmarksController, type: :controller do
 
     it "sets bookmarks instance variable" do
       expect(user_mock).to receive(:bookmarks) { [bookmark] }
-
       get :index
 
       expect(assigns[:bookmarks]).to eq([bookmark])

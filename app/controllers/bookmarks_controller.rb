@@ -17,7 +17,7 @@ class BookmarksController < ApplicationController
   end
 
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks
   end
 
   private
